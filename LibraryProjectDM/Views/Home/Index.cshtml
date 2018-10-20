@@ -1,0 +1,65 @@
+﻿@model List<LibraryProjectDM.App_Data.Book>
+
+@{
+
+    ViewBag.Title = "Home";
+
+}
+
+<div class="col-lg-12">
+
+    @using (Html.BeginForm("Filtr", "Home"))
+    {
+        @Html.RadioButton("Answer", "All")<span>Wszytskie</span>
+        @Html.RadioButton("Answer", "Available")<span>Dostępne</span>
+        @Html.RadioButton("Answer", "Rent")<span>Nie dostępne</span>
+
+        <input type="submit" name="filtr" value="Filtruj" />
+
+    }
+    <br />
+    <table class="table" id="example">
+        <tr>
+            <th>Tytuł</th>
+            <th>Autor</th>
+            <th>ISBN</th>
+            <th>Wydawnictwo</th>
+            <th>Rok wydania</th>
+            <th>Dostępność</th>
+        </tr>
+        @foreach (var item in @Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Author</td>
+                <td>@item.ISBN</td>
+                <td>@item.Publishing_House</td>
+                <td>@item.Publishmant_Year</td>
+
+                @if (item.Is_Available == true)
+                {
+                    <td>
+                        Dostępna
+                        @using (@Html.BeginForm("Rent", "Home", FormMethod.Post))
+                        {
+                            @Html.Hidden("id", @item.Id_Book)
+                            <input type="submit" id="send" value="Wypożycz" />
+                        }
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        Nie dostępna
+                        @using (@Html.BeginForm("UnRent", "Home", FormMethod.Post))
+                        {
+                            @Html.Hidden("id", @item.Id_Book)
+                            <input type="submit" id="send" value="Oddaj" />
+                        }
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+
+</div>
