@@ -10,11 +10,7 @@ namespace LibraryProjectDM.Models
     public class AllBook : IListBook
     {
 
-        public AllBook(DataClassesDataContext db) : base(db)
-        {
-        }
-
-        public override List<Book> GetListBook()
+        public  List<Book> GetListBook(DataClassesDataContext _db)
         {
 
             var allBooks = _db.Books.Select(p => p);

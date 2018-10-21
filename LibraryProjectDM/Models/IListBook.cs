@@ -6,15 +6,8 @@ using LibraryProjectDM.App_Data;
 
 namespace LibraryProjectDM.Models
 {
-    public abstract class IListBook
+    public interface  IListBook
     {
-        protected DataClassesDataContext _db;
-
-        protected IListBook(DataClassesDataContext db)
-        {
-            this._db = db;
-        }
-
-        public abstract List<Book> GetListBook();
+          List<Book> GetListBook(DataClassesDataContext _db);
     }
 }

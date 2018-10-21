@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm("Rent","Rent"))
+{
+    <span> Podaj nazwisko wypozyczajcego </span>@Html.TextBox("name",null)
+    <input type="submit" value="Wypozycz"/>
+}
+

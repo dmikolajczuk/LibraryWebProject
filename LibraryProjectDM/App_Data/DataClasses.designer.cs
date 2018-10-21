@@ -393,10 +393,10 @@ namespace LibraryProjectDM.App_Data
 			OnCreated();
 		}
 
-	    public Rent(int id_book,int id_rent )
+	    public Rent(int id_book,int id_rent, int user_id )
 	    {
 	        ID_Book = id_book;
-	        ID_User = 1;
+	        ID_User = user_id;
 	        Rent_Date = DateTime.Now;
 	        ID_Rent = id_rent;
 

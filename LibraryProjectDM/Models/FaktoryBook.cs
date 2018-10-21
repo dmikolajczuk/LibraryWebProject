@@ -18,15 +18,15 @@ namespace LibraryProjectDM.Models
         {
             if (s.Equals("Rent"))
             {
-                return new RentBook(_db);
+                return new RentBook();
             }
             else if (s.Equals("Available"))
             {
-                return new AvailableBook(_db);
+                return new AvailableBook();
             }
             else
             {
-                return new AllBook(_db);
+                return new AllBook();
             }
 
         }

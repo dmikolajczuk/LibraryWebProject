@@ -40,14 +40,14 @@
                 {
                     <td>
                         Dostępna
-                        @using (@Html.BeginForm("Rent", "Home", FormMethod.Post))
+                        @using (@Html.BeginForm("Index", "Rent", FormMethod.Post))
                         {
                             @Html.Hidden("id", @item.Id_Book)
                             <input type="submit" id="send" value="Wypożycz" />
                         }
                     </td>
                 }
-                else
+                else if(item.Is_Available == false)
                 {
                     <td>
                         Nie dostępna
